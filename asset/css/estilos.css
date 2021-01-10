@@ -1,0 +1,432 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body .model{
+    position: absolute;
+    width: 100%;
+    display: none;
+    height: 100%;
+    z-index: 20;
+    background-color: rgba(0,0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+.model{
+    top: 0;
+    left: 0;
+    transition: 2s;
+}
+.model .grupo__eliminacion{
+    background: #fff;
+    padding: 20px;
+    box-shadow: 1px 7px 25px rgba(0, 0,0,.6);
+}
+.model .grupo__eliminacion .botones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 300px;
+    margin: auto;
+}
+
+.model .grupo__eliminacion .titulo{
+    font-size: 20px;
+}
+
+@media(max-width:800px){
+    .model .grupo__eliminacion .botones{
+        grid-gap: 10px;
+    }
+    .model .grupo__eliminacion .titulo{
+        font-size: 18px;
+    }
+}
+
+html, body {
+    height: 100%;
+}
+.contenedor{
+    min-height: calc(82%);
+}
+body{
+    background: rgba(212, 202, 202, 0.144);
+    font-family: monospace;
+}
+h1{
+    color: #444;
+    font-size: 20px;
+    text-align: center;
+    transition: font-size 1s;
+
+}
+.gallery-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 150px;
+    grid-gap: 10px;
+}
+
+.gallery__item{
+    text-align: center;
+    position: relative;
+}
+.gallery__title{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    background: linear-gradient(rgba(255,255,255,0),rgba(0, 0, 0, 1));
+    width: 100%;
+}
+.gallery__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita la distorcion de la imagen */
+}
+.gallery__item:nth-child(4){
+    grid-column-start: span 2;
+}
+.gallery__item:nth-child(5){
+    grid-row-start: span 2;
+}
+.gallery__item:nth-child(9){
+    grid-column-start: span 2;
+}
+@media(min-width:320px){
+
+    .gallery__title{
+        font-size: 18px;
+        transition: font-size 1s;
+    }
+}
+@media(min-width:768px){
+    h1{
+        font-size: 30px;
+        transition: font-size 1s;
+    }
+    .gallery-container{
+        grid-template-columns: repeat(4,1fr);
+    }
+    .gallery__item:nth-child(1){
+        grid-column-start: span 2;
+    }
+    .gallery__item:nth-child(4){
+        grid-row-start: span 1;
+        grid-column-start: span 1;
+    }
+    .gallery__item:nth-child(8){
+        grid-row-start: span 1;
+    }
+}
+@media(min-width:1024px){
+    h2{
+        font-size: 40px;
+        transition: font-size 1s;
+
+    }
+    .gallery-container{
+        width: 96%;
+        margin: auto;
+        grid-template-columns: repeat(6,1fr);
+    }
+    .gallery__item:nth-child(1){
+        grid-row-start: span 2;
+    }
+    .gallery__item:nth-child(2){
+        grid-row-start: span 1;
+    }
+    .gallery__item:nth-child(3){
+        grid-column-start: span 2;
+    }
+    .gallery__item:nth-child(4){
+        grid-row-start: span 2;
+    }
+    .gallery__item:nth-child(6){
+        grid-row-start:span 2 ;
+    }
+    .gallery__item:nth-child(8){
+        grid-column-start: span 2;
+    }
+}
+
+
+
+
+
+
+main {
+	max-width: 800px;
+	width: 90%;
+	margin: auto;
+	padding: 40px;
+}
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    background: #E5E5E5;
+    padding: 20px;
+}
+.formulario .tituloForm{
+    text-align: center;
+}
+.show-message{
+    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.formulario__label{
+    cursor: pointer;
+}
+.formulario__grupo__input{
+    position: relative;
+}
+.formulario__input{
+    width: 100%;
+    background: #fff;
+	border: 3px solid transparent;
+	border-radius: 3px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 40px 0 10px;
+    transition: .3s ease all;
+    outline: none;
+}
+.formulario__input:focus{
+    border:2px solid #0075ff;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+.formulario__input-error{
+    font-size: 14px;
+    margin-bottom: 0px;
+    display: none;
+}
+.formulario__input-error-activo{
+    display: block;
+}
+.formulario__validacion-estado{
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+.formulario__mensaje{
+    height: 45px;
+    line-height: 45px;
+    background-color: #f66060;
+    border-radius: 4px;
+    padding: 0px 15px;
+    color: #fff;
+    display: none;
+}
+.formulario__mensaje-activo{
+    display: block;
+}
+.formulario__grupo_btn-enviar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario__mensaje-exito{
+    margin-top: 10px;
+    height: 45px;
+    line-height: 45px;
+    background-color: green;
+    border-radius: 4px;
+    padding: 0px 15px;
+    color: #fff;
+    display: none;
+}
+.formulario__mensaje-exito-activo{
+    display: block;
+}
+
+/* Validacion del formulario */
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #bb2929;
+}
+
+.textarea{
+    min-height: 100px;
+    max-height: 300px;
+}
+.footer2 {
+    margin-top: 20px;
+    bottom: 0px;
+    left: 0px;
+    background-color: #444;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+.footer2 .grupo__redes .elemento{
+    font-size: 20px;
+    color: #fff;
+}
+.footer2 a{
+    text-decoration: none;
+    color: #fff;
+}
+.cabecera{
+    background-image: url("../../imagenes/fondo.gif");
+    background-repeat: repeat;
+    height: 150px;
+    opacity: .5;
+    transition: .4s ease all;
+    position: relative;
+    /* transition: .9 ease all; */
+    /* background-size: cover; */
+}
+
+/* Estilos del apartado de Info */
+.cabecera:hover{
+    opacity: .9;
+}
+.cabecera .titulo{
+    position: absolute;
+    text-align: center;
+    font-size: 40px;
+    margin: 2.5% 40%;
+    color: black;
+    opacity: 1;
+}
+ .grupo__general{
+    margin: 20px auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows: repeat(1,1fr);
+    grid-gap: 50px;
+    border-radius: 4px;
+}
+.skills__container .titulo{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.skills__container{
+    margin: auto;
+}
+.skills__container .skills{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 150px;
+    grid-gap: 40px;
+    position: relative;
+}
+.skill__item{
+    text-align: center;
+    position: relative;
+}
+
+.skill__item .skill__title{
+    font-size: 20px;
+    text-align: center;
+}
+@media(max-width:700px){
+    .cabecera .titulo{
+        position: absolute;
+        text-align: center;
+        font-size: 50px;
+        margin: 2.5% 10%;
+    }
+    .grupo__general{
+        grid-template-columns:repeat(1,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+}
+
+/* Estilos del apartado de galeria->view->id*/
+.contenedor .grupo__imagen{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+.contenedor .grupo__imagen .tituloIndiviual{
+    margin: 20px auto;
+    color: black;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+.contenedor .grupo__imagen .imagen{
+    width: auto;
+    max-height: 300px;
+}
+.contenedor .grupo__imagen .grupo__descripcion{
+    width: 50%;
+    margin: 10px auto;
+    text-align: justify;
+}
+.contenedor .grupo__imagen .grupo__descripcion .titulo{
+    font-size: 30px;
+}
+.contenedor .grupo__imagen .grupo__descripcion .descripcion{
+    font-size: 15px;
+}
+
+.contenedor .grupo__paginacion{
+    /* position: absolute; */
+    margin-top: 40px;
+    bottom: 60px;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap: 65%;
+}
+.contenedor .grupo__paginacion a{
+    margin: auto;
+    width: 150px;
+}
+
+/*Estilos de los botones*/
+.btn{
+    color: #fff;
+}
+.btn-gray{
+    background-color: gray;
+}
+.btn-gray:hover{
+    color: #fff;
+    background-color: rgb(87, 86, 86);
+}
+/*Estilos formulario galeria->create*/
+.formulario__galeria__create{
+    padding: 20px;
+    width: 60%;
+    /* border:1px solid red; */
+    margin: 20px auto;
+}
+.formulario__galeria__create .titulo{
+    text-align: center;
+}
+.formulario__galeria__create .label{
+    cursor: pointer;
+}
+
+.file{
+    /* margin: 20px; */
+    opacity: .5;
+    height: 60px;
+}
